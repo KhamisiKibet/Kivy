@@ -1,0 +1,7 @@
+Pong game 
+https://kivy.org/doc/stable/tutorials/pong.html
+.Kv
+https://kivy.org/doc/stable/examples/gen__application__app_with_kv__py.html
+https://kivy.org/doc/stable/examples/gen__application__app_with_kv_in_template1__py.html
+Layouts
+https://kivy.org/doc/stable/gettingstarted/layouts.html

@@ -1,0 +1,241 @@
+#:kivy 1.0
+########################################################################
+## SPINN DESIGN CODE
+# YOUTUBE: (SPINN TV) https://www.youtube.com/spinnTv
+# WEBSITE: spinndesign.com
+########################################################################
+# creating simple Pagelayout using.kv
+########################################################################
+## Create Box layout
+########################################################################
+# Main layout
+BoxLayout:
+    # Set background color
+    canvas.before:
+        Color:
+            rgba: (21/255, 22/255, 30/255, 1)
+        Rectangle:
+            # self here refers to the widget i.e FloatLayout
+            pos: self.pos
+            size: self.size
+
+    # Layout spacing
+    spacing: 10            
+    # Set orientation
+    orientation: "vertical"
+
+    # Add Header
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_y: None
+        # Set header height
+        height: 50
+
+        # Add button
+        Button:
+            text: "Menu"
+            size_hint_x: None
+            # Set default bg to transparent
+            background_color: (0,0,0,0)
+
+            # Set button bg color and border radius
+            canvas.before:
+                ## Add background color
+                Color:
+                    rgba: (228/255, 168/255, 55/255, 1)
+                ## Creating rectange of button size
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [20]
+
+        # Add label
+        Label:
+            text: "My App Header"
+
+        # Add text input
+        TextInput:
+            # Placeholder
+            hint_text: 'Search'
+            multiline: False
+            # size_hint_x: None
+            size_hint_y: .8
+            padding_y:[10,10]
+            font_size: '14dp'
+            # Set background to transparent
+            background_color: 0,0,0,0
+            # Set cursor color
+            cursor_color: (228/255, 168/255, 55/255, 1)
+            # Add bottom border
+            canvas.before:
+                Color:
+                    rgba: (228/255, 168/255, 55/255, 1)
+            canvas.after:              
+                Color:
+                    rgba: (228/255, 168/255, 55/255, 1)
+                Line:
+                    points: self.pos[0] , self.pos[1], self.pos[0] + self.size[0], self.pos[1]             
+
+    # Middle container
+    BoxLayout:
+        orientation: "horizontal"
+        # Left Menu
+        StackLayout:
+            size_hint: (.4, 1)
+            spacing: 5
+            # Add bg color
+            canvas.before:
+                Color:
+                    rgba: (21/255, 22/255, 30/255, 1)
+                Rectangle:
+                    # self here refers to the widget i.e FloatLayout
+                    pos: self.pos
+                    size: self.size
+
+            # Add buttons
+            Button:
+                text: "Page 1"
+                size_hint: (1, None)
+                height: 40
+                background_color: (228/255, 168/255, 55/255, 0)
+                # set button color/border radius
+                canvas.before:
+                    ## Add background color
+                    Color:
+                        rgba: (48/255, 49/255, 54/255, .5)
+
+                    ## Creating rectange of button size
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10]
+
+            Button:
+                text: "Page 2"
+                size_hint: (1, None)
+                height: 40
+                background_color: (228/255, 168/255, 55/255, 0)
+                # border: 30, 30, 30, 30
+                canvas.before:
+                    ## Add background color
+                    Color:
+                        rgba: (48/255, 49/255, 54/255, .5)
+
+                    ## Creating rectange of button size
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10]
+
+        # Main content container
+        BoxLayout:
+            PageLayout:
+                BoxLayout:
+                    orientation: "vertical"
+                    AsyncImage:
+                        source: 'https://images.freeimages.com/images/large-previews/1cb/close-squirrel-1381764.jpg'
+                        allow_stretch: True
+
+                BoxLayout:
+                    orientation: "vertical"
+                    AsyncImage:
+                        source: 'https://images.freeimages.com/images/large-previews/6e4/cemetary-1387449.jpg'
+                        allow_stretch: True
+
+                BoxLayout:
+                    orientation: "vertical"
+                    AsyncImage:
+                        source: 'https://images.freeimages.com/images/large-previews/5b8/starfish-1377326.jpg'
+                        allow_stretch: True
+
+                BoxLayout:
+                    orientation: "vertical"
+                    AsyncImage:
+                        source: 'https://images.freeimages.com/images/large-previews/0b3/burning-tree-1377053.jpg'
+                        allow_stretch: True
+
+
+
+
+        # Right Menu
+        StackLayout:
+            size_hint: (.4, 1)
+            spacing: 5
+            canvas.before:
+                Color:
+                    rgba: (21/255, 22/255, 30/255, 1)
+
+                Rectangle:
+                    # self here refers to the widget i.e FloatLayout
+                    pos: self.pos
+                    size: self.size
+
+            Button:
+                text: "Page 1"
+                size_hint: (1, None)
+                height: 40
+                background_color: (0, 0, 0, 0)
+                canvas.before:
+                    ## Add background color
+                    Color:
+                        rgba: (48/255, 49/255, 54/255, .5)
+
+                    ## Creating rectange of button size
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10]
+            Button:
+                text: "Page 2"
+                size_hint: (1, None)
+                height: 40
+                background_color: (0, 0, 0, 0)
+                canvas.before:
+                    ## Add background color
+                    Color:
+                        rgba: (48/255, 49/255, 54/255, .5)
+
+                    ## Creating rectange of button size
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10]
+
+
+    # Footer container
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_y: None
+        height: 30
+        spacing: 5
+        Label:
+            text: "Copyright 2021"
+        Button:
+            text: "Help"
+            size_hint_x: None
+            background_color: (0, 0, 0, 0)
+            canvas.before:
+                ## Add background color
+                Color:
+                    rgba: (48/255, 49/255, 54/255, .5)
+
+                ## Creating rectange of button size
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [10]
+        Button:
+            text: "Contact Us"
+            size_hint_x: None
+            background_color: (0, 0, 0, 0)
+            canvas.before:
+                ## Add background color
+                Color:
+                    rgba: (48/255, 49/255, 54/255, .5)
+
+                ## Creating rectange of button size
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [10]
+
